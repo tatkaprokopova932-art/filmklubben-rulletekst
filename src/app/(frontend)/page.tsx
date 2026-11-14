@@ -3,6 +3,8 @@ import { getPayload } from 'payload'
 import React from 'react'
 import config from '@/payload.config'
 import './styles.css'
+import Link from 'next/link'
+
 
 export default async function HomePage() {
   const payloadConfig = await config
@@ -23,7 +25,11 @@ export default async function HomePage() {
 
 {articles.docs.map((article) => (
   <article key={article.id}>
-    <h2>{article.title}</h2>
+    
+<Link href={`/articles/${article.id}`}>
+  <h2>{article.title}</h2>
+</Link>
+
     {article.content && <RichText data={article.content} />}
   </article>
 ))}
