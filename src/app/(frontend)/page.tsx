@@ -1,3 +1,4 @@
+import { RichText } from '@payloadcms/richtext-lexical/react'
 import { getPayload } from 'payload'
 import React from 'react'
 import config from '@/payload.config'
@@ -16,9 +17,17 @@ export default async function HomePage() {
 
 <h1>Filmklubben Rulletekst</h1>
 
+
+
+{articles.docs.length === 0 && <p>No articles available yet.</p>}
+
 {articles.docs.map((article) => (
-  <h2 key={article.id}>{article.title}</h2>
+  <article key={article.id}>
+    <h2>{article.title}</h2>
+    {article.content && <RichText data={article.content} />}
+  </article>
 ))}
+
 
 
       <div className="content">
