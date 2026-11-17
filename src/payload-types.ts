@@ -125,6 +125,8 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  name?: string | null;
+  photo?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -171,6 +173,8 @@ export interface Media {
 export interface Article {
   id: number;
   title: string;
+  subtitle?: string | null;
+  author?: (number | null) | User;
   content: {
     root: {
       type: string;
@@ -272,6 +276,8 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  photo?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -314,6 +320,8 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface ArticlesSelect<T extends boolean = true> {
   title?: T;
+  subtitle?: T;
+  author?: T;
   content?: T;
   updatedAt?: T;
   createdAt?: T;
