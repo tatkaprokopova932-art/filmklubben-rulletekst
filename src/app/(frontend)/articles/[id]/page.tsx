@@ -29,6 +29,19 @@ export default async function ArticlePage({ params }: { params: Promise<{ id: st
   return (
     <article>
       <h1>{article.title}</h1>
+
+
+{article.publishedAt && (
+  <p>
+    Published: {new Date(article.publishedAt).toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })}
+  </p>
+)}
+
       <h2>{article.subtitle}</h2>
 
       {typeof article.author === 'object' && article.author !== null && (

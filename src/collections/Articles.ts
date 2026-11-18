@@ -21,6 +21,12 @@ access: {
     },
 
 {
+  name: 'publishedAt',
+  type: 'date',
+  required: false,
+},
+
+{
   name: 'author',
   type: 'relationship',
   relationTo: 'users',

@@ -174,6 +174,7 @@ export interface Article {
   id: number;
   title: string;
   subtitle?: string | null;
+  publishedAt?: string | null;
   author?: (number | null) | User;
   content: {
     root: {
@@ -321,6 +322,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface ArticlesSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
+  publishedAt?: T;
   author?: T;
   content?: T;
   updatedAt?: T;
