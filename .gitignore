@@ -54,3 +54,4 @@ node_modules/
 # Local SQLite database
 .db
 .db.backup
+.db.backup-before-fix
